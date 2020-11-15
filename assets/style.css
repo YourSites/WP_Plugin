@@ -1,0 +1,182 @@
+
+.ratingCSS {
+
+	border-left: 5px solid red;
+	
+	background-color: lightgrey;
+
+	padding: 0;
+
+	margin-left: 10px;
+
+}
+
+
+
+.ratingCSS label {
+
+	display: inline-block;
+
+}
+
+
+
+.rating-containerCSS {
+
+	/* remove inline-block whitespace */
+
+	font-size: 0;
+
+	/* flip the order so we can use the + and ~ combinators */
+
+	unicode-bidi: bidi-override;
+
+	direction: rtl;
+
+}
+
+
+
+.rating-containerCSS * {
+
+	font-size: 20px;
+
+}
+
+
+
+.rating-containerCSS > input {
+
+	display: none;
+
+}
+
+
+
+.rating-containerCSS > input + label {
+
+	/* only enough room for the star */
+
+	font-family: 'dashicons';
+
+	display: inline-block;
+
+	overflow: hidden;
+
+	text-indent: 9999px;
+
+	width: 1em;
+
+	white-space: nowrap;
+
+	cursor: pointer;
+
+	margin: 0;
+
+}
+/*works*/
+
+
+
+.rating-containerCSS > input + label:before {
+
+	display: inline-block;
+
+	text-indent: -9999px;
+
+	content: "\f154";
+
+	color: #888;
+
+}
+
+
+
+.rating-containerCSS > input:checked ~ label:before,
+
+.rating-containerCSS > input + label:hover ~ label:before,
+
+.rating-containerCSS > input + label:hover:before {
+
+	content: "\f155";
+
+	color: #e52;
+
+	text-shadow: 0 0 1px #333;
+
+}
+
+
+/*
+.rating-containerCSS > .star-clearCSS + label {
+
+	text-indent: -9999px;
+
+	width: .5em;
+
+	margin-left: -.5em;
+
+}
+*/
+
+
+.rating-containerCSS > .star-clearCSS + label:before {
+
+	width: .5em;
+
+}
+
+
+.star-clearCSS {
+	
+	display: inline-block;
+
+	content: "\f154";
+
+	color: #888;
+	
+	
+	
+}
+
+
+.rating-containerCSS:hover > input + label:before {
+
+	content: "\f154";
+
+	color: #888;
+
+	text-shadow: none;
+
+}
+
+
+
+.rating-containerCSS:hover > input + label:hover ~ label:before,
+
+.rating-containerCSS:hover > input + label:hover:before {
+
+	content: "\f155";
+
+	color: #e52;
+
+	text-shadow: 0 0 1px #333;
+
+}
+
+
+
+.comment-respond .rating-containerCSS > .star-clearCSS + label, .comment-respond .rating-containerCSS > input + label:before {
+
+	text-indent: 9999px;
+
+}
+
+
+
+.comment-respond .rating-containerCSS > input + label {
+
+	text-indent: -9999px;
+
+
+}
